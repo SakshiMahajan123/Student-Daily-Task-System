@@ -1,0 +1,9 @@
+<h1>Welcome Student</h1>
+<button (click)="logout()">Logout</button>
+<div *ngIf="whatToShow==1">
+    <app-showtests></app-showtests>
+</div>
+
+<div *ngIf="whatToShow==2">
+    <app-attemptests></app-attemptests>
+</div>

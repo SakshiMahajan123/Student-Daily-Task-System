@@ -1,0 +1,38 @@
+<button (click)="GoBack()">GOBack</button>
+<table border="1" id="customers">
+    <tr>
+        <td>
+            <table border="2">
+                <tr>
+                <th>SN</th>
+                <th>Question</th>
+                <th>Action</th>
+                </tr>
+                <tr *ngFor="let log of student.logs; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{log.question.name}}</td>
+                    <td>
+                        <div *ngIf="log.submit==0">
+                            <button (click)="load(i)">load</button>
+                        </div>
+                        <div *ngIf="log.submit==1">
+                            Submitted
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td align="top">Write answer 
+        <div *ngIf="showIndex<0">
+            QuestionNotSelected
+        </div>
+        <div *ngIf="showIndex>=0">
+            Question:{{student.logs[showIndex].question.name}} <br>
+            Answer: <br>
+            <textarea  cols="50" rows="10" [(ngModel)]="student.logs[showIndex].answer"></textarea>
+<button (click)="update()">update</button>
+<button (click)="submit()">submit</button>
+        </div>
+    </td>
+    </tr>
+</table>
